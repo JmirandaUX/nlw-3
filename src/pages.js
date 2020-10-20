@@ -1,8 +1,10 @@
-module.exports = {
+const orphanages = require('./database/fakedata.js');
 
+module.exports = {
+    
     index(request, response) {
         const city = request.query.city
-        return response.render('index', {city})
+        return response.render('index')
     },
 
     orphanage (request, response) {
@@ -10,11 +12,11 @@ module.exports = {
     },
 
     orphanages (request, response) {
-        return response.render('orphanages')
+        return response.render('orphanages', { orphanages })
     },
 
     createOrphanage (request, response) {
         return response.render('create-orphanage')
-    },
+    }
 
 }
